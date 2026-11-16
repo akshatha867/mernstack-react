@@ -11,6 +11,11 @@ import Arrays from './array/Arrays';
 import Alert from './pages/Alert';
 import Lists from './pages/Lists';
 import Form from './pages/Form';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Layout from './pages/Layout';
+import Blog from './pages/Blog';
+import NoPage from './pages/NoPage';
+import Hooks from './pages/Hooks';
 
 
 function App() {
@@ -22,9 +27,23 @@ function App() {
   
   {/* <Arrays/> */} 
  {/* <Alert/> */}
-  <Conditions/>
+  {/* <Conditions/>
  <Lists/>
- <Form/>
+ <Form/> */}
+
+ <BrowserRouter>
+ <Routes>
+<Route path="/" element={<Layout/>}>
+<Route index element={<Greeting/>} />
+<Route path="blog" element={<Blog/>} />
+<Route path="list" element={<Lists/>} />
+<Route path="login" element={<Form/>} />
+<Route path="hooks" element={<Hooks/>} />
+<Route path="*" element={<NoPage/>} />
+
+</Route>
+ </Routes>
+ </BrowserRouter>
   </>
   )
 

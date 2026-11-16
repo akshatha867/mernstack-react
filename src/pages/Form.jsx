@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function Form() {
+  const[name,setName]=useState()
      let handleChange=(event)=>{
-        console.log(event.target.value);   
+      setName(event.target.value);
+           
     }
     let handleSubmit=(event)=>{
         event.preventDefault();
@@ -10,6 +12,7 @@ function Form() {
   return (
    
     <div>
+      <p>On changing names: {name}</p>
         <form onSubmit={handleSubmit}>
               <label>Enter your name: </label>
               <input type="text" onChange={handleChange}/>
@@ -22,4 +25,4 @@ function Form() {
   )
 }
 
-export default Form
+export default Form;
