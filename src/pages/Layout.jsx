@@ -27,6 +27,9 @@ function Layout() {
        <li>
         <Link to="users">Users</Link>
        </li>
+       <li>
+        <Link to="my/profile">My Profile</Link>
+       </li>
 
       </ul>
       </nav>

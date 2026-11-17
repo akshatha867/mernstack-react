@@ -18,6 +18,7 @@ import NoPage from './pages/NoPage';
 import Hooks from './pages/Hooks';
 import Users from './pages/Users';
 import Login from './pages/Login';
+import MyProfile from './pages/MyProfile';
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
 <Route path="login_here" element={<Login/>} />
 <Route path="hooks" element={<Hooks/>} />
 <Route path="users" element={<Users/>} />
+<Route path="my/profile" element={<MyProfile/>} />
 <Route path="*" element={<NoPage/>} />
 
 </Route>

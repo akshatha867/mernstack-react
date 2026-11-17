@@ -20,9 +20,11 @@ function Login() {
                 password:password,
             });
             console.log("Login Response",response);
-            console.log("User token",response.data.accesstoken);
+            console.log("User token",response.data.accessToken);
 
-            userToken=response.data.accesstoken;
+            userToken=response.data.accessToken;
+            console.log(userToken);
+            
             localStorage.setItem("my-user",userToken);
             setUser(response.data);
             setSuccess(true);
@@ -43,55 +45,76 @@ function Login() {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
+    
+<div className=" w-xl mx-auto min-h-screen bg-green-200 flex items-center justify-center p-4">
+
+  <div className="w-full max-w-sm rounded-xl bg-white p-8 shadow-md">
+
+    <h2 className="mb-6 text-center text-2xl font-bold text-slate-800">
       Login
-      <div>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label>Enter Your Username </label>
-            <br></br>
-            <input
-              type="text"
-              name="name"
-              value={username}
-              onChange={(e) => {
-                setUsername(e.target.value);
-              }}
-            />
-          </div>
-          <br></br>
-          <div>
-            {" "}
-            <label>Enter Your password </label>
-            <br></br>
-            <input
-              type="text"
-              name="password"
-              value={password}
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-            />
-          </div>
-          <br></br>
+    </h2>
 
-          <button>Login</button>
+    <form onSubmit={handleSubmit}>
 
-          {success && <button onClick={handleLogout}>Logout</button>}
-        </form>
+      <div className="mb-4">
+        <label className="mb-2 block text-sm font-medium text-slate-700">
+          Enter Your Username
+        </label>
+
+        <input
+          type="text"
+          name="name"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          className="w-full rounded-md border border-slate-300 p-2 outline-none focus:border-blue-500"
+        />
       </div>
-      <div>{error && <p style={{ color: "red" }}>{error}</p>}</div>
-      <div>
-        {success && (
-          <div>
-            <p style={{ color: "green" }}>
-              {user ? "Welcome" : "Please Login Again"}
-              {user.firstName}
-            </p>
-          </div>
-        )}
+
+      <div className="mb-6">
+        <label className="mb-2 block text-sm font-medium text-slate-700">
+          Enter Your Password
+        </label>
+
+        <input
+          type="password"
+          name="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="w-full rounded-md border border-slate-300 p-2 outline-none focus:border-blue-500"
+        />
       </div>
-    </div>
+
+      <button
+        type="submit"
+        className="w-full rounded-md bg-blue-600 p-2.5 font-medium text-white hover:bg-blue-700"
+      >
+        Login
+      </button>
+
+      {success && (
+        <button
+          type="button"
+          onClick={handleLogout}
+          className="mt-3 w-full rounded-md bg-red-500 p-2.5 text-white hover:bg-red-600"
+        >
+          Logout
+        </button>
+      )}
+
+    </form>
+
+    {error && (
+      <p className="mt-4 text-center text-sm text-red-600">{error}</p>
+    )}
+
+    {success && (
+      <p className="mt-4 text-center text-sm font-medium text-green-600">
+        Welcome {user?.firstName}
+      </p>
+    )}
+
+  </div>
+</div>
   );
 }
 
