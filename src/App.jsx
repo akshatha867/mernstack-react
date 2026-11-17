@@ -16,6 +16,8 @@ import Layout from './pages/Layout';
 import Blog from './pages/Blog';
 import NoPage from './pages/NoPage';
 import Hooks from './pages/Hooks';
+import Users from './pages/Users';
+import Login from './pages/Login';
 
 
 function App() {
@@ -38,7 +40,9 @@ function App() {
 <Route path="blog" element={<Blog/>} />
 <Route path="list" element={<Lists/>} />
 <Route path="login" element={<Form/>} />
+<Route path="login_here" element={<Login/>} />
 <Route path="hooks" element={<Hooks/>} />
+<Route path="users" element={<Users/>} />
 <Route path="*" element={<NoPage/>} />
 
 </Route>

@@ -19,7 +19,13 @@ function Layout() {
         <Link to="login">Login Here</Link>
        </li>
         <li>
+        <Link to="login_here">Login </Link>
+       </li>
+        <li>
         <Link to="hooks">Hooks</Link>
+       </li>
+       <li>
+        <Link to="users">Users</Link>
        </li>
 
       </ul>
